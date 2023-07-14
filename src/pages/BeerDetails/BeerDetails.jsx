@@ -6,10 +6,9 @@ import { useEffect } from "react";
 const BeerDetails = (state) => {
   const location = useLocation();
   const { beerId } = useParams();
-  const listBeer = useBeerStore((state) => state.listBear);
+  const listBeer = useBeerStore((state) => state.listBeer);
 
   const findBaer = listBeer.find((option) => option.id === Number(beerId));
-  console.log(findBaer);
 
   useEffect(() => {}, []);
   return <Link to={location.state}>Go back</Link>;

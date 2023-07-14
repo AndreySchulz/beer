@@ -4,10 +4,25 @@ import axios from "axios";
 axios.defaults.baseURL = "https://api.punkapi.com/v2/";
 
 export const useBeerStore = create((set) => ({
-  listBear: [],
+  listBeer: [],
+  selectedBeer: [],
+
   fetchPerPege: async (page) => {
     const response = await axios(`beers?page=${page}`);
 
-    set({ listBear: response.data });
+    set({ listBeer: response.data });
   },
+  addSelected: (id) =>
+    set((state) => ({
+      selectedBeer: !state.selectedBeer.includes(id)
+        ? [...state.selectedBeer, id]
+        : state.selectedBeer.filter((value) => value !== id),
+    })),
+
+  deleteById: () =>
+    set((state) => ({
+      listBeer: state.listBeer.filter(
+        ({ id }) => !state.selectedBeer.includes(id)
+      ),
+    })),
 }));

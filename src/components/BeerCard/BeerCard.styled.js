@@ -9,6 +9,10 @@ export const CardBox = styled.li`
 
   border: 1px solid #00000033;
   border-radius: 20px;
+
+  &.active {
+    border: 2px solid #8bc34a;
+  }
 `;
 export const CardLink = styled(Link)`
   display: flex;
@@ -21,7 +25,15 @@ export const CardLink = styled(Link)`
 
 export const ImgBox = styled.div`
   width: 200px;
+  padding: 10px;
   margin-bottom: 20px;
+
+  background-color: #cddc393d;
+
+  border-radius: 50%;
+  border-left-style: dotted;
+  border-top-right-radius: inherit;
+  border-bottom-left-radius: inherit;
 `;
 export const CardImg = styled.img`
   height: 300px;

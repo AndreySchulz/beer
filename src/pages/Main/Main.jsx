@@ -4,8 +4,11 @@ import BeerCard from "../../components/BeerCard/BeerCard";
 import { CardList } from "./Main.styled";
 
 const Main = () => {
-  const listBeer = useBeerStore((state) => state.listBear);
+  const listBeer = useBeerStore((state) => state.listBeer);
   const fetchBeer = useBeerStore((state) => state.fetchPerPege);
+  const selectedBeer = useBeerStore((state) => state.selectedBeer);
+  const deleteId = useBeerStore((state) => state.deleteById);
+
   const [page, setPage] = useState(1);
   const [sliceArr, setSliceArr] = useState({ start: 0, end: 15 });
 
@@ -35,6 +38,16 @@ const Main = () => {
 
   return (
     <>
+      {selectedBeer.length !== 0 ? (
+        <button
+          type="button"
+          onClick={() => {
+            deleteId();
+          }}
+        >
+          Delete
+        </button>
+      ) : null}
       <CardList>
         {paginBeer.map((item) => {
           return <BeerCard key={item.id} item={item} />;
