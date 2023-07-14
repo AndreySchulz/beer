@@ -7,7 +7,6 @@ const BeerCard = ({ item }) => {
   const [active, setActive] = useState(false);
   const location = useLocation();
   const addSelected = useBeerStore((state) => state.addSelected);
-  const selectedBeer = useBeerStore((state) => state.selectedBeer);
 
   const { name, image_url, id } = item;
 
@@ -17,7 +16,7 @@ const BeerCard = ({ item }) => {
 
     addSelected(id);
   };
-  console.log(selectedBeer);
+
   return (
     <CardBox onContextMenu={handleClick} className={active ? "active" : null}>
       <CardLink to={`/beer/${id}`} state={location}>

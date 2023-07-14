@@ -2,16 +2,22 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const CardBox = styled.li`
-  width: 380px;
+  width: 240px;
   height: 460px;
-  padding: 28px 0 36px 0;
+
   background: #8080801c;
 
   border: 1px solid #00000033;
   border-radius: 20px;
 
+  text-align: center;
+  transition: all 1250ms cubic-bezier(0.4, 0, 0.2, 1);
+
   &.active {
     border: 2px solid #8bc34a;
+  }
+  :hover {
+    color: #8bc34a;
   }
 `;
 export const CardLink = styled(Link)`
@@ -19,6 +25,7 @@ export const CardLink = styled(Link)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 28px 0 36px 0;
 
   height: 100%;
 `;

@@ -18,6 +18,7 @@ export const useBeerStore = create((set) => ({
         ? [...state.selectedBeer, id]
         : state.selectedBeer.filter((value) => value !== id),
     })),
+  clearSelected: () => set({ selectedBeer: [] }),
 
   deleteById: () =>
     set((state) => ({
