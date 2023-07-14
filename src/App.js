@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import BeerDetails from "./pages/BeerDetails/BeerDetails";
 
 const Main = lazy(() => import("./pages/Main/Main"));
 
@@ -18,8 +19,9 @@ function App() {
     <Routes>
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Main />} />
+        <Route path="beer/:beerId" element={<BeerDetails />}></Route>
       </Route>
-      <Route path="*" element={<MainLayout />} />
+      <Route path="*" element={<Main />} />
     </Routes>
   );
 }
